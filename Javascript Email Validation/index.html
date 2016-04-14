@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Javascript Email Validation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1> Javascript Email Validation</h1>
+        <script type="text/javascript">
+            function validate(form_id,email)
+            {
+                var reg =/^([A-Za-z0-9_\-\.]){1,}\@([A-za-z0-9_\-\.]){1,}\.([A-za-z]{2,4})$/;
+                var address = document.forms[form_id].elements[email].value;
+                if(reg.test(address)== false)
+                {
+                    alert('Invalid Email Address!.Please enter a valid one');
+                    document.forms[form_id].elements[email].focus;
+                    
+                    
+                    
+                 return false;
+                 
+                }
+            }
+        </script>
+        <form id="email_form" method="get" action="submit_successful.html" onsubmit="javascript:return validate('email_form','email')">
+            <p>
+                Enter Email Address:
+            </p>
+            <input type="text" id="email" name="email"/>
+            <input type="submit" value="Submit"/>
+            
+        </form>
+        <div></div>
+    </body>
+</html>
